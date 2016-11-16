@@ -1,8 +1,11 @@
 
 import java.io.IOException;
 import java.util.StringTokenizer;
+
+import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
 
@@ -26,11 +29,11 @@ public class ClassAverage {
         
         public void map(Object key, Text value, Context context
         ) throws IOException, InterruptedException {
-            StringTokenizer itr = new StringTokenizer(value.toString());
-            while (itr.hasMoreTokens()) {
+            String[] itr =  value.toString().split("\n");
+            
                 //word.set(itr.nextToken());
                 //context.write(word, one);
-            }
+            
         }    
     }
     
@@ -52,7 +55,16 @@ public class ClassAverage {
     }
     
     public static void main(String[] args) throws Exception {
-    
+    	Configuration conf = new Configuration();
+    	Job job = new Job(conf, "Class Average");
+    	
+    	job.setJarByClass(ClassAverage.class);
+    	job.setMapperClass(TokenizerMapper.class);
+    	job.setCombinerClass(DoubleCalcReducer.class);
+    	job.setReducerClass(DoubleCalcReducer.class);
+    	
+    	job.setOutputKeyClass(Text.class);
+    	
     }
 }
 
