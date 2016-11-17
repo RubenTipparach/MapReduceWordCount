@@ -17,13 +17,16 @@ hadoop fs -copyFromLocal /home/tipparac/DataSet /user/tipparac/classaverage/inpu
 
 
 -- EXECUTE
-hadoop jar ca.jar ClassAverage /user/tipparac/classaverage/input /user/tipparac/classaverage/output 2
+hadoop jar ca.jar ClassAverage /user/tipparac/classaverage/input /user/tipparac/classaverage/output /user/tipparac/classaverage/logs 2
 
 
 
 hadoop fs -ls /user/tipparac/classaverage/output/
+hadoop fs -ls /user/tipparac/classaverage/logs/
 
 hadoop fs -rm -r /user/tipparac/classaverage/output/
 
 -- READ STUFF
 hadoop fs -cat /user/tipparac/classaverage/output/part-r-00000
+
+hadoop fs -cat /user/tipparac/classaverage/logs/results.txt

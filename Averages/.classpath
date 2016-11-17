@@ -1,58 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/asm-3.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/aspectjrt-1.6.11.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/aspectjtools-1.6.11.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/commons-beanutils-1.7.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/commons-beanutils-core-1.8.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/commons-cli-1.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/commons-codec-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/commons-collections-3.2.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/commons-configuration-1.6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/commons-daemon-1.0.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/commons-digester-1.8.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/commons-el-1.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/commons-httpclient-3.0.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/commons-io-2.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/commons-lang-2.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/commons-logging-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/commons-logging-api-1.0.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/commons-math-2.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/commons-net-3.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/core-3.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/hadoop-ant-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/hadoop-capacity-scheduler-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/hadoop-client-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/hadoop-core-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/hadoop-examples-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/hadoop-fairscheduler-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/hadoop-minicluster-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/hadoop-test-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/hadoop-thriftfs-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/hadoop-tools-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/hsqldb-1.8.0.10.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/jackson-core-asl-1.8.8.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/jackson-mapper-asl-1.8.8.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/jasper-compiler-5.5.12.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/jasper-runtime-5.5.12.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/jdeb-0.8.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/jersey-core-1.8.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/jersey-json-1.8.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/jersey-server-1.8.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/jets3t-0.6.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/jetty-6.1.26.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/jetty-util-6.1.26.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/jsch-0.1.42.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/junit-4.5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/kfs-0.2.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/log4j-1.2.15.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/mockito-all-1.8.5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/oro-2.0.8.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/servlet-api-2.5-20081211.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/slf4j-api-1.4.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/slf4j-log4j12-1.4.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dotsc_56/workspace/MapReduceWordCount/Hadoop/xmlenc-0.52.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/asm-3.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/aspectjrt-1.6.11.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/aspectjtools-1.6.11.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/commons-beanutils-1.7.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/commons-beanutils-core-1.8.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/commons-cli-1.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/commons-codec-1.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/commons-collections-3.2.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/commons-configuration-1.6.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/commons-daemon-1.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/commons-digester-1.8.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/commons-el-1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/commons-httpclient-3.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/commons-io-2.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/commons-lang-2.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/commons-logging-1.1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/commons-logging-api-1.0.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/commons-math-2.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/commons-net-3.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/core-3.1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/hadoop-ant-1.1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/hadoop-capacity-scheduler-1.1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/hadoop-client-1.1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/hadoop-core-1.1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/hadoop-examples-1.1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/hadoop-fairscheduler-1.1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/hadoop-minicluster-1.1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/hadoop-test-1.1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/hadoop-thriftfs-1.1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/hadoop-tools-1.1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/hsqldb-1.8.0.10.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/jackson-core-asl-1.8.8.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/jackson-mapper-asl-1.8.8.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/jasper-compiler-5.5.12.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/jasper-runtime-5.5.12.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/jdeb-0.8.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/jersey-core-1.8.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/jersey-json-1.8.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/jersey-server-1.8.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/jets3t-0.6.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/jetty-6.1.26.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/jetty-util-6.1.26.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/jsch-0.1.42.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/junit-4.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/kfs-0.2.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/log4j-1.2.15.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/mockito-all-1.8.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/oro-2.0.8.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/servlet-api-2.5-20081211.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/slf4j-api-1.4.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/slf4j-log4j12-1.4.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="K:/Users/Ruben/workspace/MapReduceWordCount/Hadoop/xmlenc-0.52.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -1,7 +1,9 @@
 
+import java.io.BufferedWriter;
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
 import org.apache.hadoop.conf.Configuration;
@@ -36,7 +38,10 @@ public class ClassAverage {
 	 */
     public static class TokenizerMapper extends Mapper<Object, Text, Text, ClassWritable>
     {
-    	
+    	/*
+    	 * (non-Javadoc)
+    	 * @see org.apache.hadoop.mapreduce.Mapper#map(KEYIN, VALUEIN, org.apache.hadoop.mapreduce.Mapper.Context)
+    	 */
         public void map(Object key, Text value, Mapper.Context context
         ) throws IOException, InterruptedException {
             
@@ -64,32 +69,72 @@ public class ClassAverage {
     }
     
     /*
-     * Calculation stuff.
+     * Calculation stuff. The reducer merges data together via the iterable thing.
      */
     public static class DoubleCalcReducer
             extends Reducer< Text, ClassWritable,  Text, ClassWritable> {
 
         private ClassWritable result = new ClassWritable();
 
+        /*
+         * (non-Javadoc)
+         * @see org.apache.hadoop.mapreduce.Reducer#reduce(KEYIN, java.lang.Iterable, org.apache.hadoop.mapreduce.Reducer.Context)
+         */
         public void reduce(Text key, Iterable<ClassWritable> values,
         		Reducer< Text, ClassWritable,  Text, ClassWritable>.Context context
         ) throws IOException, InterruptedException {
             double sum = 0;
             int count = 0;
             
+            double min = -1;
+            double max = -1;
+            		
             for (ClassWritable val : values) {
                 sum += val.getTotal().get();
                 count += val.getCount().get();
                 
+                // Get new min.
+                if(min != -1)
+                {
+                	double min2 = val.getMin().get();
+                	if(min2 < min)
+                	{
+                		min = min2;
+                	}
+                }
+                else
+                {
+                	min = val.getMin().get();
+                }
+                
+                // Get new max.
+                if(max != -1)
+                {
+                	double max2 = val.getMax().get();
+                	if(max2 > max)
+                	{
+                		max = max2;
+                	}
+                }
+                else
+                {
+                	max = val.getMax().get();
+                }
             }
             
             result.setTotal(sum);
             result.SetCount(count);
             result.setAvg(sum/count);
+            result.SetMin(min);
+            result.setMax(max);
+            
             context.write(key, result);
         }
     }
     
+    /*
+     * This is a serializable class for storing statistical data for each "Class".
+     */
     public static class ClassWritable implements WritableComparable<ClassWritable>
     {
     	private IntWritable count;
@@ -98,7 +143,9 @@ public class ClassAverage {
     	private DoubleWritable max;
     	private DoubleWritable avg;
     	
-    	
+    	/*
+    	 * Default constructor thingy. Because I get lazy sometimes.
+    	 */
        	public ClassWritable()
     	{
     		this.count = new IntWritable(0);
@@ -109,7 +156,9 @@ public class ClassAverage {
     		avg = new DoubleWritable();
     	}
     	
-    	
+    	/*
+    	 * Initial constructor, for reading in data.
+    	 */
     	public ClassWritable(DoubleWritable total, DoubleWritable min, DoubleWritable max)
     	{
     		this.count = new IntWritable(1);
@@ -120,6 +169,11 @@ public class ClassAverage {
     		avg = new DoubleWritable();
     	}
     	
+    	/*
+    	 * For sereailizable purposes.
+    	 * (non-Javadoc)
+    	 * @see org.apache.hadoop.io.Writable#readFields(java.io.DataInput)
+    	 */
 		@Override
 		public void readFields(DataInput in) throws IOException {
 			count.readFields(in);
@@ -129,6 +183,11 @@ public class ClassAverage {
 			avg.readFields(in);
 		}
 		
+		/*
+		 * For sereailizable purposes.
+		 * (non-Javadoc)
+		 * @see org.apache.hadoop.io.Writable#write(java.io.DataOutput)
+		 */
 		@Override
 		public void write(DataOutput out) throws IOException {
 			count.write(out);
@@ -139,13 +198,15 @@ public class ClassAverage {
 		}
 		
 	
-		// Get methods.
+		/*
+		 *  Get methods.
+		 */
 		public DoubleWritable getMin()
 		{
 			return min;
 		}
 		
-		public DoubleWritable geMax()
+		public DoubleWritable getMax()
 		{
 			return max;
 		}
@@ -160,7 +221,9 @@ public class ClassAverage {
 			return count;
 		}
 		
-		// Set methods.
+		/*
+		 *  Set methods.
+		 */
 		public void SetMin(double value)
 		{
 			min.set(value);
@@ -186,18 +249,28 @@ public class ClassAverage {
 			avg.set(value);
 		}
 		
+		/*
+		 * Comparable method. Not really needed right now.
+		 * (non-Javadoc)
+		 * @see java.lang.Comparable#compareTo(java.lang.Object)
+		 */
 		@Override
 		public int compareTo(ClassWritable value) {
 			// TODO: Idk if I need to do this.
 			return 0;
 		}
 		
+		/*
+		 * Overwritten toString to format the data in a fancy string.
+		 * (non-Javadoc)
+		 * @see java.lang.Object#toString()
+		 */
 		@Override
 		public String toString()
 		{
 			return "Average: " + avg.get() 
-			+ " Total: " + total.get()
-			+ " Count: " + count.get() 
+			//+ " Total: " + total.get()
+			//+ " Count: " + count.get() 
 			+ " min: " + min.get()
 			+ " max: " + max.get();
 			
@@ -208,6 +281,9 @@ public class ClassAverage {
      * Method for setting up stuff.
      */
     public static void main(String[] args) throws Exception {
+    	
+    	long timeStart = System.currentTimeMillis();
+    	
     	Configuration conf = new Configuration();
     	Job job = new Job(conf, "Class Average");
     	
@@ -224,21 +300,51 @@ public class ClassAverage {
     	job.setOutputKeyClass(Text.class);
     	job.setOutputValueClass(ClassWritable.class);
     	
+    	
     	String dataFile = args[0];
     	String outputPath = args[1];
-    	Integer numNodes = Integer.parseInt(args[2]);
+    	String logPath = args[2];
+    	Integer numNodes = Integer.parseInt(args[3]);
     	
     	FileSystem fs = FileSystem.get(conf);
+    	
+    	fs.delete(new Path(outputPath), true);
     	long dataLength = fs.getContentSummary(new Path(dataFile)).getLength();
     	
     	FileInputFormat.setMaxInputSplitSize(job, (long) (dataLength/numNodes));
+    	job.setNumReduceTasks(numNodes/2);
     	
     	FileInputFormat.addInputPath(job, new Path(dataFile));
         FileOutputFormat.setOutputPath(job, new Path(outputPath));
+    
 
-    	//job.setNumReduceTasks(numNodes/2);
-    	
-    	System.exit(job.waitForCompletion(true) ? 0 : 1);
+        boolean finished = job.waitForCompletion(true);
+        
+        long timeStop = System.currentTimeMillis();
+        
+        // using my custom file thing.
+        try
+        {
+            Path pt = new Path(logPath + "/results.txt");
+            
+            fs.delete(new Path(logPath), true);
+            
+            BufferedWriter br = new BufferedWriter(new OutputStreamWriter(fs.create(pt,true)));
+
+            // TO append data to a file, use fs.append(Path f)
+            long delta = timeStop - timeStart;
+            String line = "Program took: " + delta + " milliseconds. ";
+            System.out.println(line);
+        	
+            br.write(line);
+            br.close();
+		}
+        catch(Exception e)
+        {
+			System.out.println("File not found");
+		}        
+        
+    	System.exit(finished ? 0 : 1);
     	
     }
 }
