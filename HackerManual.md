@@ -15,6 +15,10 @@ hadoop fs -mkdir /user/tipparac/classaverage/output
 
 hadoop fs -copyFromLocal /home/tipparac/DataSet /user/tipparac/classaverage/input/DataSet
 
+hadoop fs -copyToLocal /user/tipparac/classaverage/output/part-r-00000 /home/tipparac/part-r-00000
+
+hadoop fs -copyToLocal /user/tipparac/classaverage/output /home/tipparac/output
+
 
 -- EXECUTE
 hadoop jar ca.jar ClassAverage /user/tipparac/classaverage/input /user/tipparac/classaverage/output /user/tipparac/classaverage/logs 2
