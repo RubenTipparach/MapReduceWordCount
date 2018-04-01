@@ -16,7 +16,7 @@ import org.apache.hadoop.mapreduce.Reducer;
 public class DoubleCalcReducer
         extends Reducer< Text, ClassWritable,  Text, ClassWritable> {
 
-	 static Log logReduce = LogFactory.getLog(DoubleCalcReducer.class);
+	// static Log logReduce = LogFactory.getLog(DoubleCalcReducer.class);
     private ClassWritable result = new ClassWritable();
 
     /*
@@ -31,8 +31,11 @@ public class DoubleCalcReducer
     	
     	Map<String, Integer> compareMap = new HashMap<String, Integer> ();
     	
+    	int mergeCount = 0;
+    	
         for (ClassWritable val : values) {
         	String[] sArray  = val.getFriends().toString().split(" ");
+        	mergeCount += 1;
         	
         	for(String sa: sArray)
         	{
@@ -58,8 +61,8 @@ public class DoubleCalcReducer
             Map.Entry pair = (Map.Entry)it.next();
             
             System.out.println(pair.getKey() + " = " + pair.getValue());
-            logReduce.info(pair.getKey() + " = " + pair.getValue());
-            if((Integer)pair.getValue() > 1)
+           // logReduce.info(pair.getKey() + " = " + pair.getValue());
+            if(mergeCount == 1 || (Integer)pair.getValue() > 1)
             {
             	String fs = " ";
 	        	String cs = (String)pair.getKey();
@@ -76,7 +79,7 @@ public class DoubleCalcReducer
         
       
         System.out.println(finalString);
-        logReduce.info(finalString);
+        //logReduce.info(finalString);
         
         // String.join doesnt work for some reason...
         result = new ClassWritable(new Text(finalString));

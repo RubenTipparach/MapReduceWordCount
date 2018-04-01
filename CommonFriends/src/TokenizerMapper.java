@@ -13,7 +13,7 @@ import org.apache.hadoop.mapreduce.Mapper;
  */
 public class TokenizerMapper extends Mapper<Object, Text, Text, ClassWritable>
 {
-	 static Log logMap = LogFactory.getLog(TokenizerMapper.class);
+	 //static Log logMap = LogFactory.getLog(TokenizerMapper.class);
 	/*
 	 * (non-Javadoc)
 	 * @see org.apache.hadoop.mapreduce.Mapper#map(KEYIN, VALUEIN, org.apache.hadoop.mapreduce.Mapper.Context)
