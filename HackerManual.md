@@ -61,6 +61,7 @@ hadoop fs -mkdir /user/tipparac/commonfriends/input
 hadoop fs -mkdir /user/tipparac/commonfriends/output
 
 hadoop fs -copyFromLocal /home/tipparac/input/testfile /user/tipparac/commonfriends/input/testfile
+hadoop fs -copyFromLocal /home/tipparac/input /user/tipparac/commonfriends
 
 
 -- EXTRACT FILES FOR READ
@@ -70,7 +71,11 @@ hadoop fs -copyToLocal /user/tipparac/commonfriends/output /home/tipparac/output
 
 hadoop fs -copyToLocal /user/tipparac/commonfriends/logs /home/tipparac/logs
 
--- EXECUTE
+-- Test
+hadoop jar cf.jar CommonFriends /user/tipparac/commonfriends/input /user/tipparac/commonfriends/output /user/tipparac/commonfriends/logs 2
+
+
+-- EXECUTE actual
 hadoop jar cf.jar CommonFriends /user/tipparac/commonfriends/input /user/tipparac/commonfriends/output /user/tipparac/commonfriends/logs 2
 
 
@@ -90,7 +95,7 @@ hadoop fs -cat /user/tipparac/commonfriends/logs/results.txt
 
 
 -- FULL RUN
-
+hadoop fs -rm -r /user/tipparac/commonfriends/input/
 hadoop fs -rm -r /user/tipparac/commonfriends/output/
 
 hadoop com.sun.tools.javac.Main CommonFriends.java ClassWritable.java DoubleCalcReducer.java TokenizerMapper.java
