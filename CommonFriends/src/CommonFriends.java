@@ -20,8 +20,6 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 
 public class CommonFriends {
-	 
-	 
 	  
 	static FileSystem fs;
 	static Path pt;
@@ -105,23 +103,9 @@ public class CommonFriends {
     	
     }
     
+    // This log doesn't work all that well anyways...
     public static void WriteLog(String val) {
-    	bigLog += val + "\n";
-//    	try {
-//	    	BufferedWriter br;
-//		
-//			br = new BufferedWriter(new OutputStreamWriter(fs.append(pt)));
-//	
-//	        // TO append data to a file, use fs.append(Path f)
-//	        System.out.println(val);
-//	    	
-//	        br.write(val);
-//	        br.close();
-//    	}
-//        catch(Exception e)
-//        {
-//			System.out.println(e.toString());
-//		}  
+    	bigLog += val + "\n"; 
     }
 
 }

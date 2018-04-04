@@ -8,8 +8,10 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.WritableComparable;
 
 /*
-	     * This is a serializable class for storing statistical data for each "Class".
-	     */
+ * A lot of this class was repurposed from an older project I did in Hadoop
+ * The "Class" and "DoubleCalc" are just legacy class names for older programs.
+ * I figured this works fine for what I needed to get done, so I didn't refactor the whole thing.
+ */
 public class ClassWritable implements WritableComparable<ClassWritable>
 {
 
@@ -29,26 +31,16 @@ public class ClassWritable implements WritableComparable<ClassWritable>
 	public ClassWritable(Text friends)
 	{
 		this.friends = friends;
-//    		this.total = total;
-//    		this.min = min;
-//    		this.max = max;
-//    		
-//    		avg = new DoubleWritable();
 	}
 	
 	/*
-	 * For sereailizable purposes.
+	 * For sereailizable purposes. I went and manually serialized everything in the reduce phase.
 	 * (non-Javadoc)
 	 * @see org.apache.hadoop.io.Writable#readFields(java.io.DataInput)
 	 */
 	@Override
 	public void readFields(DataInput in) throws IOException {
 		friends.readFields(in);
-		//count.readFields(in);
-		//total.readFields(in);
-//			min.readFields(in);
-//			max.readFields(in);
-//			avg.readFields(in);
 	}
 	
 	/*
@@ -59,13 +51,7 @@ public class ClassWritable implements WritableComparable<ClassWritable>
 	@Override
 	public void write(DataOutput out) throws IOException {
 		friends.write(out);
-		//count.write(out);
-		//total.write(out);
-//			min.write(out);
-//			max.write(out);
-//			avg.write(out);
 	}
-	
 
 	/*
 	 *  Get methods.
@@ -78,7 +64,6 @@ public class ClassWritable implements WritableComparable<ClassWritable>
 	/*
 	 *  Set methods.
 	 */
-	
 	public void setFriends(Text val)
 	{
 		this.friends = val;
@@ -105,12 +90,5 @@ public class ClassWritable implements WritableComparable<ClassWritable>
 	{
 		return "friends: " 
 			+ this.friends.toString();
-	//
-	//					"Average: " + avg.get() 
-	//+ " Total: " + total.get()
-	//+ " Count: " + count.get() 
-	//			+ " min: " + min.get()
-	//			+ " max: " + max.get();
-		
 	}
 }

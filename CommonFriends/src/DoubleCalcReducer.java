@@ -5,8 +5,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
@@ -16,23 +14,22 @@ import org.apache.hadoop.mapreduce.Reducer;
 public class DoubleCalcReducer
         extends Reducer< Text, ClassWritable,  Text, ClassWritable> {
 
-	// static Log logReduce = LogFactory.getLog(DoubleCalcReducer.class);
     private ClassWritable result = new ClassWritable();
 
     /*
+     * Reducing function.
      * (non-Javadoc)
      * @see org.apache.hadoop.mapreduce.Reducer#reduce(KEYIN, java.lang.Iterable, org.apache.hadoop.mapreduce.Reducer.Context)
      */
     public void reduce(Text key, Iterable<ClassWritable> values,
     		Reducer< Text, ClassWritable,  Text, ClassWritable>.Context context
     ) throws IOException, InterruptedException {
-    	
-    	//boolean isFirst = true;
-    	
+    	    	
     	Map<String, Integer> compareMap = new HashMap<String, Integer> ();
     	
     	int mergeCount = 0;
     	
+    	// Start parsing strings and mapping them, fancy data structure would've been faster but I'm lazy
         for (ClassWritable val : values) {
         	String[] sArray  = val.getFriends().toString().split(" ");
         	mergeCount += 1;
@@ -48,20 +45,17 @@ public class DoubleCalcReducer
         			compareMap.put(sa, 1);
         		}
         	}
-        	//System.out.println(val.toString());
-        	//result = val;
         }
         
-       //CommonFriends.WriteLog("----------------");
+       // Merge numbers together when they have common members
         String finalString = "";
         
         int cn = 1;
         Iterator it = compareMap.entrySet().iterator();
         while (it.hasNext()) {
-            Map.Entry pair = (Map.Entry)it.next();
+            Map.Entry pair = (Map.Entry)it.next();            
             
-            System.out.println(pair.getKey() + " = " + pair.getValue());
-           // logReduce.info(pair.getKey() + " = " + pair.getValue());
+            // System.out.println(pair.getKey() + " = " + pair.getValue());
             if(mergeCount == 1 || (Integer)pair.getValue() > 1)
             {
             	String fs = " ";
@@ -74,26 +68,10 @@ public class DoubleCalcReducer
             	finalString += fs + cs;
             }
 
-            //it.remove();
-        }
-        
+        }        
       
-        System.out.println(finalString);
-        //logReduce.info(finalString);
-        
-        // String.join doesnt work for some reason...
+        //System.out.println(finalString);
         result = new ClassWritable(new Text(finalString));
-        
-        //CommonFriends.WriteLog(result.toString());
-        //CommonFriends.WriteLog("----------------");
-        //result = values;
-        
-//            result.setTotal(sum);
-//            result.SetCount(count);
-//            result.setAvg(sum/count);
-//            result.SetMin(min);
-//            result.setMax(max);
-        
         context.write(key, result);
     }
 }
